@@ -29,7 +29,7 @@ public class Main {
 
         System.out.println("Average of  all real estates square meters: " + HouseService.averageAllSquareMeter()+" m^2");
 
-        System.out.println(HouseService.filterAllByRoomCount(2,1).toString());
+        System.out.println("Real estates that are 2+1: " + HouseService.filterAllByRoomCount(2,1).toString());
 
         /*  Output:
             Sum of all houses prices: 1492500 tl
@@ -40,7 +40,10 @@ public class Main {
             Average of all villas square meters: 185.0 m^2
             Average of all summerhouses square meters: 220.0 m^2
             Average of  all real estates square meters: 158.33333333333334 m^2
-            [House@1e80bfe8, House@66a29884, House@4769b07b]
+            Real estates that are 2+1: [
+            price=497500, squareMeters=145, roomCount=2, livingRoomCount=1,
+            price=497500, squareMeters=145, roomCount=2, livingRoomCount=1,
+            price=497500, squareMeters=145, roomCount=2, livingRoomCount=1]
         */
 
     }

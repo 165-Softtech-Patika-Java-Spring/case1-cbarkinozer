@@ -45,4 +45,12 @@ public abstract class BaseHouse {
     public void setLivingRoomCount(int livingRoomCount) {
         this.livingRoomCount = livingRoomCount;
     }
+
+    @Override
+    public String toString() {
+        return  "\nprice=" + price +
+                ", squareMeters=" + squareMeters +
+                ", roomCount=" + roomCount +
+                ", livingRoomCount=" + livingRoomCount;
+    }
 }
