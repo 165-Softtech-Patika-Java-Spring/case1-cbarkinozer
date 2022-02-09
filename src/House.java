@@ -12,6 +12,7 @@ public class House extends BaseHouse {
 
     public House(BigDecimal price, int squareMeters, int roomCount, int livingRoomCount){
         super(price, squareMeters, roomCount, livingRoomCount);
+        addHouseList(this);
     }
 
     public static ArrayList<House> getHouseList(){

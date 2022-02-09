@@ -13,6 +13,7 @@ public class Summerhouse extends BaseHouse {
 
     public Summerhouse(BigDecimal price, int squareMeters, int roomCount, int livingRoomCount) {
         super(price, squareMeters, roomCount, livingRoomCount);
+        addSummerhouseList(this);
     }
     public static ArrayList<Summerhouse> getSummerhouseList(){
         return summerhouseList;

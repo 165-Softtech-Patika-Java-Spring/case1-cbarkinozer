@@ -1,27 +1,69 @@
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
 
 
     public static void main(String[] args){
-        //Created with default values
-        new House();
-        new House();
-        new House();
+        System.out.println("Welcome to the real estate program...");
+        System.out.println("To exit, enter q");
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            System.out.println("Select the real estate you want to produce by typing it: (q to exit) ");
+            System.out.println("House, Villa, Summerhouse");
+            String decision = scanner.nextLine();
+            if(decision.equals("q")){
+                System.out.println("Exiting the program...");
+                break;
+            }else{
+                createRealEstate(decision);
+            }
+        }
 
-        new Villa();
-        new Villa();
-        new Villa();
-
-        new Summerhouse();
-        new Summerhouse();
-        new Summerhouse();
+        calculate();
 
 
+    }
+
+    public static void createRealEstate(String decision){
+        HouseFactory houseFactory = new HouseFactory();
+        System.out.println("Would you like to use default values?: y/n ");
+        Scanner scanner = new Scanner(System.in);
+        String isDefault = scanner.nextLine();
+        if(isDefault.equalsIgnoreCase("y")){
+            if(decision.equalsIgnoreCase("House")){
+                new House();
+            }else if(decision.equalsIgnoreCase("Villa")){
+                new Villa();
+            } else if(decision.equalsIgnoreCase("Summerhouse")){
+                new Summerhouse();
+            }
+        }else {
+            HouseDTO.houseType= decision;
+            System.out.println("Please enter following properties in following order: ");
+            System.out.println("price,square meters, room count, living room count");
+            try{
+                HouseDTO.price= scanner.nextBigDecimal();
+                HouseDTO.squareMeters=scanner.nextInt();
+                HouseDTO.roomCount= scanner.nextInt();
+                HouseDTO.livingRoomCount= scanner.nextInt();
+            }catch(InputMismatchException ex){
+                System.out.println("Invalid input!");
+            }
+            BaseHouse house = houseFactory.produceHouse();
+            if (house == null) {
+                System.out.println("Please enter a valid house type");
+            }
+        }
+    }
+
+    public static void calculate(){
         System.out.println("Sum of all houses prices: " + HouseService.sumHousePrices()+" tl");
         System.out.println("Sum of all villas prices: " + HouseService.sumVillaPrices()+" tl");
         System.out.println("Sum of all summerhouses prices: " + HouseService.sumSummerhousePrices()+" tl");
 
         System.out.println("Sum of  all real estates prices: " + HouseService.sumAllPrices()+" tl");
-
 
         System.out.println("Average of all houses square meters: " + HouseService.averageHouseSquareMeter()+" m^2");
         System.out.println("Average of all villas square meters: " + HouseService.averageVillaSquareMeter()+" m^2");
@@ -29,9 +71,15 @@ public class Main {
 
         System.out.println("Average of  all real estates square meters: " + HouseService.averageAllSquareMeter()+" m^2");
 
-        System.out.println("Real estates that are 2+1: " + HouseService.filterAllByRoomCount(2,1).toString());
+        System.out.println("Enter room and living room count respectively for filtering real estates");
+        Scanner scanner = new Scanner(System.in);
+        int roomCount= scanner.nextInt();
+        int livingRoomCount= scanner.nextInt();
 
-        /*  Output:
+        System.out.println("Real estates that are "+roomCount+"+"+livingRoomCount+" "
+                +HouseService.filterAllByRoomCount(roomCount,livingRoomCount).toString());
+
+        /*  Example output:
             Sum of all houses prices: 1492500 tl
             Sum of all villas prices: 2550000 tl
             Sum of all summerhouses prices: 9600000 tl
@@ -45,6 +93,6 @@ public class Main {
             price=497500, squareMeters=145, roomCount=2, livingRoomCount=1,
             price=497500, squareMeters=145, roomCount=2, livingRoomCount=1]
         */
-
     }
+
 }

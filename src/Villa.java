@@ -12,6 +12,7 @@ public class Villa extends BaseHouse {
 
     public Villa(BigDecimal price, int squareMeters, int roomCount, int livingRoomCount) {
         super(price, squareMeters, roomCount, livingRoomCount);
+        addVillaList(this);
     }
     public static ArrayList<Villa> getVillaList(){
         return villaList;
