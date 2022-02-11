@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 
-public class HouseDTO {
+public class HouseDAO {
     public static String houseType;
     public static BigDecimal price;
     public static int squareMeters;

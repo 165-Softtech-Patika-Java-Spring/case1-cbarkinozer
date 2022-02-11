@@ -66,18 +66,18 @@ public class HouseService{
         ArrayList<BaseHouse> filteredHouses = new ArrayList<>();
         filteredHouses.addAll(
                 House.getHouseList().stream()
-                .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
-                .toList()
+                        .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
+                        .toList()
         );
         filteredHouses.addAll(
-        Villa.getVillaList().stream()
-                .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
-                .toList()
+                Villa.getVillaList().stream()
+                        .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
+                        .toList()
         );
         filteredHouses.addAll(
-        Summerhouse.getSummerhouseList().stream()
-                .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
-                .toList()
+                Summerhouse.getSummerhouseList().stream()
+                        .filter(x->x.getRoomCount()==roomCount && x.getLivingRoomCount()==livingRoomCount)
+                        .toList()
         );
         return filteredHouses;
     }

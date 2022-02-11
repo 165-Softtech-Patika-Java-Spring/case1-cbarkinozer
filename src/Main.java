@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -40,14 +39,14 @@ public class Main {
                 new Summerhouse();
             }
         }else {
-            HouseDTO.houseType= decision;
+            HouseDAO.houseType= decision;
             System.out.println("Please enter following properties in following order: ");
             System.out.println("price,square meters, room count, living room count");
             try{
-                HouseDTO.price= scanner.nextBigDecimal();
-                HouseDTO.squareMeters=scanner.nextInt();
-                HouseDTO.roomCount= scanner.nextInt();
-                HouseDTO.livingRoomCount= scanner.nextInt();
+                HouseDAO.price= scanner.nextBigDecimal();
+                HouseDAO.squareMeters=scanner.nextInt();
+                HouseDAO.roomCount= scanner.nextInt();
+                HouseDAO.livingRoomCount= scanner.nextInt();
             }catch(InputMismatchException ex){
                 System.out.println("Invalid input!");
             }
