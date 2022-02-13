@@ -1,11 +1,11 @@
 public class HouseFactory {
     public BaseHouse produceHouse(){
-        if(HouseDAO.houseType.equalsIgnoreCase("House")){
-            return new House(HouseDAO.price, HouseDAO.squareMeters, HouseDAO.roomCount, HouseDAO.livingRoomCount);
-        }else if(HouseDAO.houseType.equalsIgnoreCase("Villa")){
-            return new Villa(HouseDAO.price, HouseDAO.squareMeters, HouseDAO.roomCount, HouseDAO.livingRoomCount);
-        }else if(HouseDAO.houseType.equalsIgnoreCase("Summerhouse")){
-            return new Summerhouse(HouseDAO.price, HouseDAO.squareMeters, HouseDAO.roomCount, HouseDAO.livingRoomCount);
+        if(HouseDTO.houseType.equalsIgnoreCase("House")){
+            return new House(HouseDTO.price, HouseDTO.squareMeters, HouseDTO.roomCount, HouseDTO.livingRoomCount);
+        }else if(HouseDTO.houseType.equalsIgnoreCase("Villa")){
+            return new Villa(HouseDTO.price, HouseDTO.squareMeters, HouseDTO.roomCount, HouseDTO.livingRoomCount);
+        }else if(HouseDTO.houseType.equalsIgnoreCase("Summerhouse")){
+            return new Summerhouse(HouseDTO.price, HouseDTO.squareMeters, HouseDTO.roomCount, HouseDTO.livingRoomCount);
         }else{
             return null;
         }
