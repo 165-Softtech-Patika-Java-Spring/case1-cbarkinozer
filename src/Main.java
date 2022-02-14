@@ -23,7 +23,7 @@ public class Main {
             }
         }
 
-        calculate();
+        printCalculations();
 
 
     }
@@ -60,7 +60,7 @@ public class Main {
         }
     }
 
-    public static void calculate(){
+    public static void printCalculations(){
         System.out.println("Sum of all houses prices: " + HouseService.sumHousePrices()+" tl");
         System.out.println("Sum of all villas prices: " + HouseService.sumVillaPrices()+" tl");
         System.out.println("Sum of all summerhouses prices: " + HouseService.sumSummerhousePrices()+" tl");
