@@ -1,3 +1,6 @@
+import entity.*;
+import service.HouseService;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,11 +29,11 @@ public class Main {
     }
 
     public static void createRealEstate(String decision){
-        HouseFactory houseFactory = new HouseFactory();
         System.out.println("Would you like to use default values?: y/n ");
         Scanner scanner = new Scanner(System.in);
         String isDefault = scanner.nextLine();
         if(isDefault.equalsIgnoreCase("y")){
+            //Creating real estates with default values
             if(decision.equalsIgnoreCase("House")){
                 new House();
             }else if(decision.equalsIgnoreCase("Villa")){
@@ -39,6 +42,7 @@ public class Main {
                 new Summerhouse();
             }
         }else {
+            //Creating real estates by user given inputs
             HouseDTO.houseType= decision;
             System.out.println("Please enter following properties in following order: ");
             System.out.println("price,square meters, room count, living room count");
@@ -50,10 +54,9 @@ public class Main {
             }catch(InputMismatchException ex){
                 System.out.println("Invalid input!");
             }
-            BaseHouse house = houseFactory.produceHouse();
-            if (house == null) {
-                System.out.println("Please enter a valid house type");
-            }
+            HouseFactory houseFactory = new HouseFactory();
+            houseFactory.produceHouse();
+
         }
     }
 

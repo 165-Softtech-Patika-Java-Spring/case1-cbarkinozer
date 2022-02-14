@@ -1,3 +1,10 @@
+package service;
+
+import entity.BaseHouse;
+import entity.House;
+import entity.Summerhouse;
+import entity.Villa;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
